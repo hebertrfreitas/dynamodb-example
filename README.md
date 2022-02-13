@@ -2,6 +2,8 @@
 
 Aplicação de exemplo para demonstrar o uso do dynamodb local.
 
+Se quiser saber mais sobre esta ferramenta veja o [post que escrevi a respeito](https://dev.to/hebertrfreitas/dynamodb-local-um-mock-funcional-para-o-dynamodb-c94).
+
 Trata-se de uma simples api que interage com o dynamoDB.
 
 OBS: Para executar usando dynamodb local você deve passar a propriedade
