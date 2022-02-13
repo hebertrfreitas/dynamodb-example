@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  dynamodb-local:
+    working_dir: /home/dynamodblocal
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    volumes:
+      - ".dynamodbdata:/home/dynamodblocal/data"
+
+  aws-cli:
+    build:
+      context: .
+      dockerfile: aws-cli.Dockerfile
+    container_name: aws-cli  
+    environment:
+      - AWS_ACCESS_KEY_ID=local
+      - AWS_SECRET_ACCESS_KEY=local
+      - AWS_DEFAULT_REGION=sa-east-1
+      - DYNAMODB_HOST=dynamodb-local
+      - DYNAMODB_PORT=8000  
+      - DYNAMODB_TABLE=Painters
+    volumes:
+      - "./dynamo-scripts/:/tmp/"
+    command: "/tmp/dynamo-startup-script.sh"
+    depends_on:
+      - dynamodb-local
+
+    
