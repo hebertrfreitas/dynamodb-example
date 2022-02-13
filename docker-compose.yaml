@@ -28,5 +28,3 @@ services:
     command: "/tmp/dynamo-startup-script.sh"
     depends_on:
       - dynamodb-local
-
-    
