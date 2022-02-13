@@ -39,7 +39,7 @@ A aplicação simula uma api para cadastrar pintores e suas pinturas.
 Seguem alguns comandos curl para teste
 
 **Criando um pintor**
-```shell
+```sh
 curl --location --request POST 'localhost:8080/painters' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -60,11 +60,11 @@ curl --location --request POST 'localhost:8080/painters' \
 ```
 
 **Bucando um pintor pelo id**
-```shell
+```sh
 curl --location --request GET 'localhost:8080/painters/123'
 ```
 
 **Deletando um pintor**
-```shell
+```sh
 curl --location --request DELETE 'localhost:8080/painters/123'
 ```
