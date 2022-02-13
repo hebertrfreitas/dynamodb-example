@@ -22,6 +22,8 @@ else
   --attribute-definitions AttributeName=id,AttributeType=S \
   --key-schema AttributeName=id,KeyType=HASH \
   --provisioned-throughput ReadCapacityUnits=10,WriteCapacityUnits=5
+  echo "Tabela criada com sucesso"
 fi
+
 
 tail /dev/stdout

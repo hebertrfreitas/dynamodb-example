@@ -28,6 +28,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("software.amazon.awssdk:dynamodb-enhanced")
+	implementation("org.springdoc:springdoc-openapi-ui:1.6.6")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

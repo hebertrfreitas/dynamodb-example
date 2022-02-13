@@ -15,7 +15,10 @@ class DynamoDBConfig(val awsProperties: AwsProperties) {
     fun dynamoDBClient():DynamoDbClient{
         return DynamoDbClient.builder()
             .region(awsProperties.regionAsAwsEnum())
-            .endpointOverride(URI(awsProperties.endpoint))
+            .apply {
+                if(! awsProperties.endpoint.isNullOrEmpty())
+                    endpointOverride(URI(awsProperties.endpoint)) //awsProperties.endpoint = http://localhost:8000
+            }
             .credentialsProvider(DefaultCredentialsProvider.builder().build())
             .build()
     }

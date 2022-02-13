@@ -1,4 +1,4 @@
-package com.hebertrfreitas.dynamodbexample
+package com.hebertrfreitas.dynamodbexample.controller
 
 import com.hebertrfreitas.dynamodbexample.model.Painter
 import com.hebertrfreitas.dynamodbexample.repository.PaintersRepository
@@ -29,8 +29,15 @@ class PaintersController(val paintersRepository: PaintersRepository) {
     @GetMapping("{id}")
     fun getPainter(@PathVariable id: String):ResponseEntity<Any> {
         paintersRepository.getPainter(id)?.let { return ResponseEntity.ok(it) }
-
         return ResponseEntity.notFound().build()
     }
 
+    @DeleteMapping("{id}")
+    fun deletePainter(@PathVariable id: String):ResponseEntity<Any> {
+        paintersRepository.getPainter(id)?.let {
+            paintersRepository.deletePainter(it)
+            return ResponseEntity.noContent().build()
+        }
+        return ResponseEntity.notFound().build()
+    }
 }
